@@ -29,6 +29,7 @@ public class ThirdPersonMovement : MonoBehaviour
         float horizontalMoveInput = Input.GetAxis("Horizontal");
 
         Vector3 velocity = new Vector3(horizontalMoveInput, 0, verticalMoveInput);
+        velocity.Normalize();
         velocity *= _moveSpeed * Time.fixedDeltaTime;
 
         Vector3 moveOffset = _transform.rotation * velocity;
