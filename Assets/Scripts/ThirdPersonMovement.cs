@@ -10,11 +10,16 @@ public class ThirdPersonMovement : MonoBehaviour
     
     private Rigidbody _rigidbody;
     private Transform _transform;
+    private Animator _animator;
+    
+    private static readonly int Horizontal = Animator.StringToHash("Horizontal");
+    private static readonly int Vertical = Animator.StringToHash("Vertical");
 
     private void Awake()
     { 
         _rigidbody = GetComponent<Rigidbody>();
         _transform = GetComponent<Transform>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -28,6 +33,9 @@ public class ThirdPersonMovement : MonoBehaviour
         float verticalMoveInput = Input.GetAxis("Vertical");
         float horizontalMoveInput = Input.GetAxis("Horizontal");
 
+        if (Input.GetKey(KeyCode.LeftShift))
+            verticalMoveInput *= 2;
+
         Vector3 velocity = new Vector3(horizontalMoveInput, 0, verticalMoveInput);
         velocity.Normalize();
         velocity *= _moveSpeed * Time.fixedDeltaTime;
@@ -36,5 +44,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 newPosition = _transform.position + moveOffset;
         
         _rigidbody.MovePosition(newPosition);
+        _animator.SetFloat(Vertical, verticalMoveInput, 0.1f, Time.deltaTime);
+        _animator.SetFloat(Horizontal, horizontalMoveInput, 0.1f, Time.deltaTime);
     }
 }
