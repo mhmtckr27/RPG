@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using Ink.Runtime;
+using RPG.Systems.GameEvents;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -61,8 +62,10 @@ namespace RPG.Systems.DialogSystem.UI
             foreach (var currentTag in _story.currentTags)
             {
                 Debug.Log(currentTag);
-                if (currentTag.Equals("OpenDoor"))
-                    doorAnimator.SetTrigger(OpenDoorTrigger);
+                if (currentTag.StartsWith("GE_"))
+                {
+                    GameEvent.RaiseEvent(currentTag.Remove(0, 3));
+                }
             }
         }
     }
