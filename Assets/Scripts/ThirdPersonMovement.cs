@@ -13,6 +13,9 @@ namespace RPG
     
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
         private static readonly int Vertical = Animator.StringToHash("Vertical");
+        private float _lookInput;
+
+        [SerializeField] public bool isInputDisabled;
 
         private void Awake()
         { 
@@ -21,14 +24,28 @@ namespace RPG
             _animator = GetComponent<Animator>();
         }
 
+        public void DisableInput()
+        {
+            isInputDisabled = true;
+        }
+
         private void Update()
         {
-            float lookInput = Input.GetAxis("Mouse X");
-            _transform.Rotate(0, lookInput * _rotateSpeed * Time.deltaTime, 0);
+            if (isInputDisabled)
+                return;
+            
+            //we add instead of direct set because we may miss some fixedupdates when FPS changes so we don't want to lose any rotation data.
+            _lookInput += Input.GetAxis("Mouse X");
         }
 
         private void FixedUpdate()
         {
+            if(isInputDisabled)
+                return;
+            
+            _transform.Rotate(0, _lookInput * _rotateSpeed * Time.deltaTime, 0);
+            _lookInput = 0;
+            
             float verticalMoveInput = Input.GetAxis("Vertical");
             float horizontalMoveInput = Input.GetAxis("Horizontal");
 

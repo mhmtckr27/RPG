@@ -1,21 +1,15 @@
-- I looked at Monsieur Fogg 
-* Open the door please?
-    Okay, the door is opening. #GE_OpenGreenDoor
-*   ... and I could contain myself no longer.
-    'What is the purpose of our journey, Monsieur?'
-    'A wager,' he replied.
-    * *     'A wager!'[] I returned.
-            He nodded. 
-            * * *   'But surely that is foolishness!'
-            * * *  'A most serious matter then!'
-            - - -   He nodded again.
-            * * *   'But can we win?'
-                    'That is what we will endeavour to find out,' he answered.
-            * * *   'A modest wager, I trust?'
-                    'Twenty thousand pounds,' he replied, quite flatly.
-            * * *   I asked nothing further of him then[.], and after a final, polite cough, he offered nothing more to me. <>
-    * *     'Ah[.'],' I replied, uncertain what I thought.
-    - -     After that, <>
-*   ... but I said nothing[] and <>
-- we passed the day in silence.
+Finally you have arrived the chosen one! I've been waiting for you! 
+*   What? Who chose me? ^^
+    - Wait, you don't know?? Anyways, we don't have time for that. Can you open that door real quick for me? #GE_ShowGreenDoor
+    * But I don't know how to. -> instructions
+    * I don't think I want to do that right now..
+        - Okay, bye then, thanks for nothing... ->END
+
+== instructions ==
+Go to the panel, it's in the backroom. #GE_ShowBackroom
+    * Why won't you do that?
+      I'm too wide.
+      * * Okay, I'm on it!.
+        Thanks! ->END
+
 - -> END
