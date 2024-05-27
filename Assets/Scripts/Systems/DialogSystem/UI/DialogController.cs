@@ -3,6 +3,7 @@ using System.Text;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace RPG.Systems.DialogSystem.UI
@@ -11,8 +12,10 @@ namespace RPG.Systems.DialogSystem.UI
     {
         [SerializeField] private TMP_Text dialogText;
         [SerializeField] private List<Button> responseButtons;
+        [SerializeField] private Animator doorAnimator;
         
         private Story _story;
+        private static readonly int OpenDoorTrigger = Animator.StringToHash("Open");
 
         public void StartDialog(TextAsset dialogAsset)
         {
@@ -27,6 +30,7 @@ namespace RPG.Systems.DialogSystem.UI
             while (_story.canContinue)
             {
                 dialogTextBuilder.Append(_story.Continue());
+                ProcessTags();
             }
 
             dialogText.SetText(dialogTextBuilder);
@@ -49,6 +53,16 @@ namespace RPG.Systems.DialogSystem.UI
                     _story.ChooseChoiceIndex(choice.index);
                     RefreshView();
                 });
+            }
+        }
+
+        private void ProcessTags()
+        {
+            foreach (var currentTag in _story.currentTags)
+            {
+                Debug.Log(currentTag);
+                if (currentTag.Equals("OpenDoor"))
+                    doorAnimator.SetTrigger(OpenDoorTrigger);
             }
         }
     }

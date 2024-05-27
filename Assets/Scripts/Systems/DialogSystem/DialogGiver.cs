@@ -15,7 +15,7 @@ namespace RPG.Systems.DialogSystem
             var dialogController = FindObjectOfType<DialogController>(true);
             dialogController.gameObject.SetActive(true);
             dialogController.StartDialog(dialogAsset);
-            transform.LookAt(player.transform);
+            // transform.LookAt(player.transform);
         }
     }
 }
