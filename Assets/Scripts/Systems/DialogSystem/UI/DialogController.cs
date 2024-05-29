@@ -36,15 +36,27 @@ namespace RPG.Systems.DialogSystem.UI
 
             dialogText.SetText(dialogTextBuilder);
             
+            if(_story.currentChoices.Count > 0)
+            {
+                ShowChoiceButtons();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+
+        private void ShowChoiceButtons()
+        {
             for (var i = 0; i < responseButtons.Count; i++)
             {
                 var responseButton = responseButtons[i];
-                var shouldActivate =  i < _story.currentChoices.Count;
-                
+                var shouldActivate = i < _story.currentChoices.Count;
+
                 responseButton.gameObject.SetActive(shouldActivate);
                 responseButton.onClick.RemoveAllListeners();
-                
-                if(!shouldActivate)
+
+                if (!shouldActivate)
                     continue;
 
                 var choice = _story.currentChoices[i];

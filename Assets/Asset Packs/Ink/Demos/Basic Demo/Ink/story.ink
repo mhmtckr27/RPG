@@ -9,7 +9,7 @@ Finally you have arrived the chosen one! I've been waiting for you!
 Go to the panel, it's in the backroom. #GE_ShowBackroom
     * Why won't you do that?
       I'm too wide.
-      * * Okay, I'm on it!.
+      * * Okay, I'm on it!. #GE_OpenGreenDoor
         Thanks! ->END
 
 - -> END
