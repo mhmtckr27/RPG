@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 591006d6182140489b6f1295a8e8b39b, type: 3}
+  m_Name: SO_Quest_HelpTheBuddy
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Help the Buddy
+  <Description>k__BackingField: Buddy needs your help to open the green door
+  <Steps>k__BackingField:
+  - <Instructions>k__BackingField: Talk to the Buddy.
+    <Objectives>k__BackingField:
+    - <ObjectiveType>k__BackingField: 100
+  - <Instructions>k__BackingField: Locate the control panel.
+    <Objectives>k__BackingField:
+    - <ObjectiveType>k__BackingField: 0
+  - <Instructions>k__BackingField: Push the right button to open the green door.
+    <Objectives>k__BackingField:
+    - <ObjectiveType>k__BackingField: 0
+  notes: I don't know how many steps we should make this?
