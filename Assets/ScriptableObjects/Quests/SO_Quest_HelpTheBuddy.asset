@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591006d6182140489b6f1295a8e8b39b, type: 3}
   m_Name: SO_Quest_HelpTheBuddy
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Help the Buddy
+  <DisplayName>k__BackingField: Help the Buddy
   <Description>k__BackingField: Buddy needs your help to open the green door
+  <Icon>k__BackingField: {fileID: 21300000, guid: f9694628324b51a4c9c56dd277c33c18, type: 3}
   <Steps>k__BackingField:
   - <Instructions>k__BackingField: Talk to the Buddy.
     <Objectives>k__BackingField:
     - <ObjectiveType>k__BackingField: 100
   - <Instructions>k__BackingField: Locate the control panel.
     <Objectives>k__BackingField:
-    - <ObjectiveType>k__BackingField: 0
+    - <ObjectiveType>k__BackingField: 100
   - <Instructions>k__BackingField: Push the right button to open the green door.
     <Objectives>k__BackingField:
-    - <ObjectiveType>k__BackingField: 0
+    - <ObjectiveType>k__BackingField: 300
   notes: I don't know how many steps we should make this?
