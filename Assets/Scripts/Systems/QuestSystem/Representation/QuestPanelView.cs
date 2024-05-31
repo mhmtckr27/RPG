@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,29 +7,26 @@ namespace RPG.Systems.QuestSystem.Representation
 {
     public class QuestPanelView : MonoBehaviour
     {
-        [SerializeField] private Quest selectedQuest;
+        private Quest _selectedQuest;
+        
         [SerializeField] private TMP_Text displayNameText;
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private TMP_Text objectivesText;
         [SerializeField] private Image icon;
         
-        private void Awake()
+        public void Refresh(Quest selectedQuest)
         {
-            Refresh();
-        }
-
-        private void Refresh()
-        {
-            displayNameText.SetText(selectedQuest.DisplayName);
-            descriptionText.SetText(selectedQuest.Description);
-            icon.sprite = selectedQuest.Icon;
+            _selectedQuest = selectedQuest;
+            displayNameText.SetText(_selectedQuest.DisplayName);
+            descriptionText.SetText(_selectedQuest.Description);
+            icon.sprite = _selectedQuest.Icon;
 
             RefreshObjectivesText();
         }
 
         private void RefreshObjectivesText()
         {
-            var currentStep = selectedQuest.Steps.FirstOrDefault();
+            var currentStep = _selectedQuest.Steps.FirstOrDefault();
             
             if(currentStep == null)
                 return;
