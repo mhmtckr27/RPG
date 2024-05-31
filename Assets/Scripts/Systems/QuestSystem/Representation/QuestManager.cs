@@ -24,7 +24,7 @@ namespace RPG.Systems.QuestSystem.Representation
         public void SelectQuest(Quest quest)
         {
             questPanelView.Refresh(quest);
-            questPanelView.gameObject.SetActive(true);
+            questPanelView.Show();
         }
     }
 }

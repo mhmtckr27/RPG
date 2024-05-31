@@ -2,14 +2,14 @@
 using System.Text;
 using Ink.Runtime;
 using RPG.Systems.GameEvents;
+using RPG.UI;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace RPG.Systems.DialogSystem.UI
 {
-    public class DialogController : MonoBehaviour
+    public class DialogController : ToggleableView
     {
         [SerializeField] private TMP_Text dialogText;
         [SerializeField] private List<Button> responseButtons;
@@ -42,7 +42,7 @@ namespace RPG.Systems.DialogSystem.UI
             }
             else
             {
-                gameObject.SetActive(false);
+                Hide();
             }
         }
 

@@ -13,7 +13,7 @@ namespace RPG.Systems.DialogSystem
                 return;
 
             var dialogController = FindObjectOfType<DialogController>(true);
-            dialogController.gameObject.SetActive(true);
+            dialogController.Show();
             dialogController.StartDialog(dialogAsset);
             // transform.LookAt(player.transform);
         }

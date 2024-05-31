@@ -1,11 +1,12 @@
 ﻿using System.Linq;
+using RPG.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace RPG.Systems.QuestSystem.Representation
 {
-    public class QuestPanelView : MonoBehaviour
+    public class QuestPanelView : ToggleableView
     {
         private Quest _selectedQuest;
         
