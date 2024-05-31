@@ -2,6 +2,7 @@
 using System.Text;
 using Ink.Runtime;
 using RPG.Systems.GameEvents;
+using RPG.Systems.QuestSystem.Representation;
 using RPG.UI;
 using TMPro;
 using UnityEngine;
@@ -77,6 +78,11 @@ namespace RPG.Systems.DialogSystem.UI
                 if (currentTag.StartsWith("GE_"))
                 {
                     GameEvent.RaiseEvent(currentTag.Remove(0, 3));
+                }
+                else if (currentTag.StartsWith("Q_"))
+                {
+                    var questID = currentTag.Remove(0, 2);
+                    QuestManager.Instance.AddQuestByName(questID);
                 }
             }
         }

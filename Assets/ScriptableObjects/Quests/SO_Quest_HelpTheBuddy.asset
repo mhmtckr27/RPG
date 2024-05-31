@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591006d6182140489b6f1295a8e8b39b, type: 3}
   m_Name: SO_Quest_HelpTheBuddy
   m_EditorClassIdentifier: 
+  <ID>k__BackingField: HelpTheBuddy
   <DisplayName>k__BackingField: Help the Buddy
   <Description>k__BackingField: Buddy needs your help to open the green door
   <Icon>k__BackingField: {fileID: 21300000, guid: f9694628324b51a4c9c56dd277c33c18, type: 3}

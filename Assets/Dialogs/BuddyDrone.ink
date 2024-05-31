@@ -13,6 +13,7 @@ Go to the panel, it's in the backroom. #GE_ShowControlPanel
       I'm too wide.
       * * Okay, I'm on it!. 
         Thanks! #GE_ResetToMainCamera  
+        #Q_HelpTheBuddy
         ->END
 
 - -> END
