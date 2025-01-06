@@ -21,8 +21,6 @@ MonoBehaviour:
     <Objectives>k__BackingField:
     - <ObjectiveType>k__BackingField: 100
       <Flag>k__BackingField: {fileID: 11400000, guid: d582fd50897ad8a499c4ab14868387e4, type: 2}
-    - <ObjectiveType>k__BackingField: 100
-      <Flag>k__BackingField: {fileID: 11400000, guid: d582fd50897ad8a499c4ab14868387e4, type: 2}
   - <Instructions>k__BackingField: Push the right button to open the green door.
     <Objectives>k__BackingField:
     - <ObjectiveType>k__BackingField: 300
