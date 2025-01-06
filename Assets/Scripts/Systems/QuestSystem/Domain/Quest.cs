@@ -8,6 +8,8 @@ namespace RPG.Systems.QuestSystem
     [CreateAssetMenu(menuName = "RPG/Scriptable Objects/Quest System/Quest", fileName = "SO_Quest_")]
     public class Quest : ScriptableObject
     {
+        public event Action OnProgressed;
+        
         [field: SerializeField] public string ID { get; private set; }
         [field: SerializeField] public string DisplayName { get; private set; }
         [field: SerializeField] public string Description { get; private set; }
@@ -15,8 +17,6 @@ namespace RPG.Systems.QuestSystem
         [field: SerializeField] public List<Step> Steps { get; private set; }
 
         private int _currentStepIndex;
-
-        public event Action OnProgressed;
 
         public Step CurrentStep => Steps[_currentStepIndex];
 
