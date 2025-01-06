@@ -14,23 +14,12 @@ namespace RPG.Systems.QuestSystem.Representation
 
         private List<Quest> _currentQuests = new();
 
-
         private void Awake()
         {
             if (Instance == null)
                 Instance = this;
             else if(Instance != this)
                 Destroy(gameObject);
-        }
-
-        private void Start()
-        {
-            GameFlag.AnyChanged += ProgressQuests;
-        }
-
-        private void OnDestroy()
-        {
-            GameFlag.AnyChanged -= ProgressQuests;
         }
 
         public void SelectQuest(Quest quest)
@@ -53,16 +42,6 @@ namespace RPG.Systems.QuestSystem.Representation
             
             _currentQuests.Add(questToAdd);
             SelectQuest(questToAdd);
-        }
-
-        [ContextMenu("Progress Quests")]
-        public void ProgressQuests()
-        {
-            foreach (var currentQuest in _currentQuests)
-            {
-                currentQuest.TryProgress();
-                questPanelView.Show();
-            }
         }
     }
 }

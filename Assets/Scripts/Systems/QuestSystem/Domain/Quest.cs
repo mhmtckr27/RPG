@@ -20,13 +20,24 @@ namespace RPG.Systems.QuestSystem
 
         public Step CurrentStep => Steps[_currentStepIndex];
 
-        private void OnEnable() => _currentStepIndex = 0;
+        private void OnEnable()
+        {
+            _currentStepIndex = 0;
+            foreach (var step in Steps)
+            {
+                foreach (var objective in step.Objectives)
+                {
+                    if (objective.Flag != null)
+                        objective.Flag.OnChanged += OnAnyObjectiveCompleted;
+                }
+            }
+        }
         
 #if UNITY_EDITOR
         [Tooltip("For developers/designers. Not visible to player.")]
         [SerializeField] private string notes;
 #endif
-        public void TryProgress()
+        private void TryProgressStep()
         {
             if(_currentStepIndex == -1 || Steps.Count <= _currentStepIndex)
                 return;
@@ -35,8 +46,13 @@ namespace RPG.Systems.QuestSystem
             {
                 _currentStepIndex++;
                 //TODO: do the stuff when you want to do on step completed.
-                OnProgressed?.Invoke();
             }
+        }
+
+        private void OnAnyObjectiveCompleted()
+        {
+            TryProgressStep();
+            OnProgressed?.Invoke();
         }
     }
 
@@ -54,7 +70,8 @@ namespace RPG.Systems.QuestSystem
             
             foreach (var objective in Objectives)
             {
-                builder.AppendLine(objective.ToString());
+                var rgb = objective.IsCompleted ? "green" : "red";
+                builder.AppendLine($"<color={rgb}>{objective}</color>");
             }
 
             return builder.ToString();
