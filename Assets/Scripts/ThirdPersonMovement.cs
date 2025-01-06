@@ -34,6 +34,7 @@ namespace RPG
         {
             if(!ToggleableView.IsVisible())
                 _transform.Rotate(0, _lookInput * _rotateSpeed * Time.deltaTime, 0);
+            
             _lookInput = 0;
             
             float verticalMoveInput = Input.GetAxis("Vertical");

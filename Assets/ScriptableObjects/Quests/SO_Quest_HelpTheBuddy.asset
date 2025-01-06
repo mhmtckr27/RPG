@@ -20,10 +20,13 @@ MonoBehaviour:
   - <Instructions>k__BackingField: Talk to the Buddy.
     <Objectives>k__BackingField:
     - <ObjectiveType>k__BackingField: 100
+      <Flag>k__BackingField: {fileID: 11400000, guid: a2346212651881141b0f8e96085b3ee7, type: 2}
   - <Instructions>k__BackingField: Locate the control panel.
     <Objectives>k__BackingField:
     - <ObjectiveType>k__BackingField: 100
+      <Flag>k__BackingField: {fileID: 11400000, guid: d582fd50897ad8a499c4ab14868387e4, type: 2}
   - <Instructions>k__BackingField: Push the right button to open the green door.
     <Objectives>k__BackingField:
     - <ObjectiveType>k__BackingField: 300
+      <Flag>k__BackingField: {fileID: 0}
   notes: I don't know how many steps we should make this?

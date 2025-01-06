@@ -14,10 +14,20 @@ namespace RPG.Systems.QuestSystem.Representation
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private TMP_Text objectivesText;
         [SerializeField] private Image icon;
-        
-        public void Refresh(Quest selectedQuest)
+
+        public void SelectQuest(Quest questToSelect)
         {
-            _selectedQuest = selectedQuest;
+            if (_selectedQuest != null)
+                _selectedQuest.OnProgressed -= Refresh;
+            
+            _selectedQuest = questToSelect;
+            _selectedQuest.OnProgressed += Refresh;
+            
+            Refresh();
+        }
+        
+        private void Refresh()
+        {
             displayNameText.SetText(_selectedQuest.DisplayName);
             descriptionText.SetText(_selectedQuest.Description);
             icon.sprite = _selectedQuest.Icon;
@@ -27,7 +37,7 @@ namespace RPG.Systems.QuestSystem.Representation
 
         private void RefreshObjectivesText()
         {
-            var currentStep = _selectedQuest.Steps.FirstOrDefault();
+            var currentStep = _selectedQuest.CurrentStep;
             
             if(currentStep == null)
                 return;

@@ -25,7 +25,7 @@ namespace RPG.Systems.QuestSystem.Representation
 
         public void SelectQuest(Quest quest)
         {
-            questPanelView.Refresh(quest);
+            questPanelView.SelectQuest(quest);
             questPanelView.Show();
         }
 
@@ -43,6 +43,15 @@ namespace RPG.Systems.QuestSystem.Representation
             
             _currentQuests.Add(questToAdd);
             SelectQuest(questToAdd);
+        }
+
+        [ContextMenu("Progress Quests")]
+        public void ProgressQuests()
+        {
+            foreach (var currentQuest in _currentQuests)
+            {
+                currentQuest.TryProgress();
+            }
         }
     }
 }

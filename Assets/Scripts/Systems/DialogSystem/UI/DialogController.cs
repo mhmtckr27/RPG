@@ -77,7 +77,8 @@ namespace RPG.Systems.DialogSystem.UI
                 Debug.Log(currentTag);
                 if (currentTag.StartsWith("GE_"))
                 {
-                    GameEvent.RaiseEvent(currentTag.Remove(0, 3));
+                    var eventID = currentTag.Remove(0, 3);
+                    GameEvent.RaiseEvent(eventID);
                 }
                 else if (currentTag.StartsWith("Q_"))
                 {
