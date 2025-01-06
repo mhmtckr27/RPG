@@ -23,6 +23,16 @@ namespace RPG.Systems.QuestSystem.Representation
                 Destroy(gameObject);
         }
 
+        private void Start()
+        {
+            GameFlag.AnyChanged += ProgressQuests;
+        }
+
+        private void OnDestroy()
+        {
+            GameFlag.AnyChanged -= ProgressQuests;
+        }
+
         public void SelectQuest(Quest quest)
         {
             questPanelView.SelectQuest(quest);
@@ -51,6 +61,7 @@ namespace RPG.Systems.QuestSystem.Representation
             foreach (var currentQuest in _currentQuests)
             {
                 currentQuest.TryProgress();
+                questPanelView.Show();
             }
         }
     }

@@ -14,6 +14,7 @@ Go to the panel, it's in the backroom. #GE_ShowControlPanel
       * * Okay, I'm on it!. 
         Thanks! #GE_ResetToMainCamera  
         #Q_HelpTheBuddy
+        #GF_Talked To Buddy
         ->END
 
 - -> END

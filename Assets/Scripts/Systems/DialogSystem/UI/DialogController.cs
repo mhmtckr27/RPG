@@ -85,6 +85,11 @@ namespace RPG.Systems.DialogSystem.UI
                     var questID = currentTag.Remove(0, 2);
                     QuestManager.Instance.AddQuestByName(questID);
                 }
+                else if (currentTag.StartsWith("GF_"))
+                {
+                    var flag = currentTag.Remove(0, 3);
+                    GameFlagManager.Instance.SetFlag(flag, true);
+                }
             }
         }
     }
